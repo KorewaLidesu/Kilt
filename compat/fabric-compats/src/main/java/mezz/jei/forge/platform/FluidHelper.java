@@ -1,3 +1,7 @@
+/**
+ * Copied directly from JEI, meaning this is licensed under JEI's MIT license.
+ * License can be found here - https://github.com/mezz/JustEnoughItems/blob/1.20.1/LICENSE.txt
+ */
 package mezz.jei.forge.platform;
 
 import mezz.jei.api.forge.ForgeTypes;
