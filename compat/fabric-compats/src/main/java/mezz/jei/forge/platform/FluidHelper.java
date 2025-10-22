@@ -12,6 +12,7 @@ import mezz.jei.api.ingredients.ITypedIngredient;
 import mezz.jei.api.ingredients.subtypes.IIngredientSubtypeInterpreter;
 import mezz.jei.api.ingredients.subtypes.UidContext;
 import mezz.jei.common.platform.IPlatformFluidHelperInternal;
+import mezz.jei.core.util.function.LazySupplier;
 import mezz.jei.library.render.FluidTankRenderer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -36,6 +37,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class FluidHelper implements IPlatformFluidHelperInternal<FluidStack> {
+
+	public static final Supplier<FluidHelper> fluidHelper = new LazySupplier<>(FluidHelper::new);
+	
 	@Override
 	public IIngredientTypeWithSubtypes<Fluid, FluidStack> getFluidIngredientType() {
 		return ForgeTypes.FLUID_STACK;
