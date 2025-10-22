@@ -1,6 +1,8 @@
 package xyz.bluspring.kilt.compat.fabric.mixin.jei;
 
 import mezz.jei.api.registration.IModIngredientRegistration;
+import mezz.jei.common.platform.IPlatformFluidHelperInternal;
+import mezz.jei.forge.platform.FluidHelper;
 import mezz.jei.library.plugins.vanilla.VanillaPlugin;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
@@ -17,7 +19,7 @@ public abstract class FabricVanillaPluginMixin {
 
     @Inject(method = "registerIngredients", at = @At("RETURN"))
     private void kilt$jei$registerForgeFluidIngredients(IModIngredientRegistration registration) {
-        IPlatformFluidHelperInternal<?> platformFluidHelper = Services.PLATFORM.getFluidHelper();
+        IPlatformFluidHelperInternal<?> platformFluidHelper = FluidHelper.fluidHelper;
 		registerFluidIngredients(registration, platformFluidHelper);
     }
 }
